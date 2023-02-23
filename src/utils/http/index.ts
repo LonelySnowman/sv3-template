@@ -10,7 +10,9 @@ import { showMessage } from './status';
 import { BaseResponse } from './types';
 
 const service: AxiosInstance = axios.create({
-   baseURL: import.meta.env.VITE_APP_API_BASEURL,
+   baseURL: Boolean(import.meta.env.VITE_APP_USE_MOCK)
+      ? import.meta.env.VITE_APP_MOCK_BASEURL
+      : import.meta.env.VITE_APP_API_BASEURL,
    timeout: 15000,
 });
 
@@ -45,6 +47,8 @@ service.interceptors.response.use(
    }
 );
 
+// T 为 res.data.data 的类型
+// BaseResponse 为 res.data 的类型
 const request = <T = any>(config: AxiosRequestConfig): Promise<T> => {
    const conf = config;
    return new Promise((resolve) => {
@@ -54,15 +58,25 @@ const request = <T = any>(config: AxiosRequestConfig): Promise<T> => {
             const {
                data: { data },
             } = res;
+            // 此处返回data信息 也就是 api 中配置好的 Response类型
+            // 因为我们已经将 AxiosResponse 的 status在拦截器中处理过
             resolve(data as T);
          });
    });
 };
 
-export function get<T>(url: string, config: AxiosRequestConfig): Promise<T> {
-   return request<T>({ url, method: 'GET', ...config });
+export function get<T = any, U = any>(
+   config: AxiosRequestConfig,
+   url: string,
+   parms?: U
+): Promise<T> {
+   return request({ ...config, url, method: 'GET', params: parms });
 }
 
-export function post<T>(url: string, config: AxiosRequestConfig): Promise<T> {
-   return request<T>({ url, method: 'POST', ...config });
+export function post<T = any, U = any>(
+   config: AxiosRequestConfig,
+   url: string,
+   data: U
+): Promise<T> {
+   return request({ ...config, url, method: 'POST', data: data });
 }
