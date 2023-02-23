@@ -7,17 +7,17 @@ const routes: Array<RouteRecordRaw> = [home];
 
 //导入生成的路由数据
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes,
+   history: createWebHashHistory(),
+   routes,
 });
 
 router.beforeEach(async (_to, _from, next) => {
-    NProgress.start();
-    next();
+   NProgress.start();
+   next();
 });
 
 router.afterEach((_to) => {
-    NProgress.done();
+   NProgress.done();
 });
 
 export default router;

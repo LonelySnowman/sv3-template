@@ -1,3 +1,6 @@
-// import {post} from "@/utils/http/axios";
-//
-// export function userLogin = post("/123",)
+import { post } from '@/utils/http';
+import { LoginRequest, LoginResponse } from './types';
+
+export const userLogin = (data?: LoginRequest) => {
+   return post<LoginResponse>('/login', { data });
+};

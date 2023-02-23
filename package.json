@@ -4,7 +4,7 @@
    "description": "",
    "main": "index.js",
    "scripts": {
-      "lint:eslint": "eslint --cache --max-warnings 0 {src,mock}/**/*.{vue,ts,tsx} --fix",
+      "lint:eslint": "eslint --cache --max-warnings 0 {type,build,src,mock}/**/*.{vue,ts,tsx} --fix",
       "lint:prettier": "prettier --write **/*.{js,json,tsx,css,less,scss,vue,html,md}",
       "lint:lint-staged": "lint-staged",
       "prepare": "husky install"

@@ -4,4 +4,8 @@
 
 <script setup></script>
 
-<style></style>
+<style>
+div {
+   height: 100px;
+}
+</style>

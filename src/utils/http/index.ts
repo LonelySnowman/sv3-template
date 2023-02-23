@@ -59,18 +59,10 @@ const request = <T = any>(config: AxiosRequestConfig): Promise<T> => {
    });
 };
 
-export function get<T, U>(
-   url: string,
-   params: T,
-   config: AxiosRequestConfig
-): Promise<U> {
-   return request<U>({ url, params, method: 'GET', ...config });
+export function get<T>(url: string, config: AxiosRequestConfig): Promise<T> {
+   return request<T>({ url, method: 'GET', ...config });
 }
 
-export function post<T, U>(
-   url: string,
-   config: AxiosRequestConfig,
-   data: T
-): Promise<U> {
-   return request<U>({ url, data, method: 'POST', ...config });
+export function post<T>(url: string, config: AxiosRequestConfig): Promise<T> {
+   return request<T>({ url, method: 'POST', ...config });
 }
