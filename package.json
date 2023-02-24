@@ -9,6 +9,7 @@
       "lint:prettier": "prettier --write **/*.{js,json,tsx,css,less,scss,vue,html,md}",
       "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
       "lint:lint-staged": "lint-staged",
+      "plop": "plop",
       "prepare": "husky install"
    },
    "keywords": [],
@@ -29,6 +30,7 @@
       "husky": "^8.0.3",
       "lint-staged": "^13.1.2",
       "mockjs": "^1.1.0",
+      "plop": "^3.1.2",
       "postcss-html": "^1.5.0",
       "postcss-scss": "^4.0.6",
       "prettier": "^2.8.4",
