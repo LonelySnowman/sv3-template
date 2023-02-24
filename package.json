@@ -9,7 +9,6 @@
       "lint:prettier": "prettier --write **/*.{js,json,tsx,css,less,scss,vue,html,md}",
       "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
       "lint:lint-staged": "lint-staged",
-      "lint:commitlint": "npx --no-install commitlint --edit \"$1\"",
       "plop": "plop",
       "prepare": "husky install"
    },
