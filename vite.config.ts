@@ -4,39 +4,34 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { viteMockServe } from 'vite-plugin-mock';
 import { fileURLToPath } from 'url';
-// // 配置antd-v按需加载
-// import AutoImport from 'unplugin-auto-import/vite' //自动引入ref,reactive等等等
-// import Components from 'unplugin-vue-components/vite'
-// import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
-// import { wrapperEnv } from './build/utils'
 
-export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
+export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
    const root = process.cwd();
-   const env = loadEnv(mode, root); // 环境变量对象
-   console.log('环境变量------', env);
-   console.log(command);
+   const env = loadEnv(mode, root);
    return {
-      root, // 项目根目录位置 process.cwd()
-      base: '/', //  开发生产环境基础路径
+      root,
+      base: '/',
       publicDir: fileURLToPath(new URL('./public', import.meta.url)), // 打包路径
       assetsInclude: fileURLToPath(new URL('./src/assets', import.meta.url)), // 需要处理的静态资源位置
-
-      // vite插件配置
       plugins: [
          vue(),
          vueJsx(),
          viteMockServe({
             mockPath: 'mock',
             localEnabled: Boolean(env.VITE_APP_USE_MOCK),
+            prodEnabled: false, //实际开发请关闭，会影响打包体积
+            injectCode: `
+             import { setupProdMockServer } from '../mock/_createProdMockServer';
+             setupProdMockServer();
+            `,
          }),
       ],
-      // 开发预览服务配置
       server: {
-         https: false, // 启用 TLS + HTTP/2 server.proxy 选项被使用时将会仅使用 TLS
-         host: true, // 监听所有地址
-         port: 3000, // 开发服务端口
-         open: true, //启动时自动在浏览器中打开
-         cors: true, //为开发服务器配置 CORS
+         https: false,
+         host: true,
+         port: 3000,
+         open: false,
+         cors: true,
          proxy: {
             [env.VITE_APP_API_BASEURL]: {
                target: 'http://localhost:3000',
@@ -48,7 +43,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
             },
          },
       },
-      // 项目构建配置
       build: {
          sourcemap: false,
          chunkSizeWarningLimit: 4000,

@@ -7,28 +7,13 @@ export const useHomeStore = defineStore(
    {
       state: () => ({
          title: 'sv3-template',
-         subTitle: 'Vue3 + Vite3.x + TypeScript + Pinia大厂开发必备脚手架',
-         theme: 'bright',
+         subTitle: '简洁易懂的Vue3快速开发模板',
       }),
       getters: {},
       actions: {
-         updateSettings(partial: Partial<AppState>) {
+         updateInfo(partial: Partial<AppState>) {
             this.$patch(partial);
          },
-         toggleTheme(dark: boolean) {
-            if (dark) {
-               this.theme = 'dark';
-               document.documentElement.classList.add('dark');
-            } else {
-               this.theme = 'light';
-               document.documentElement.classList.remove('dark');
-            }
-         },
-      },
-      persist: {
-         key: 'theme',
-         storage: localStorage,
-         paths: ['theme'],
       },
    }
 );

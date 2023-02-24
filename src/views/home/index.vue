@@ -26,11 +26,11 @@ const getInfo = () => {
 
 <style lang="scss" scoped>
 .home {
-   height: 100vh;
-   width: 100vw;
    display: flex;
    justify-content: center;
    align-items: center;
+   width: 100vw;
+   height: 100vh;
    flex-direction: column;
 }
 </style>
