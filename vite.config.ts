@@ -4,6 +4,11 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { viteMockServe } from 'vite-plugin-mock';
 import { fileURLToPath } from 'url';
+import Icons from 'unplugin-icons/dist/vite.js';
+import IconsResolver from 'unplugin-icons/dist/resolver.js';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
    const root = process.cwd();
@@ -24,6 +29,31 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
              import { setupProdMockServer } from '../mock/_createProdMockServer';
              setupProdMockServer();
             `,
+         }),
+         AutoImport({
+            resolvers: [
+               IconsResolver({
+                  prefix: 'Icon',
+               }),
+               ElementPlusResolver(),
+            ],
+            dts: fileURLToPath(
+               new URL('./types/auto-imports.d.ts', import.meta.url)
+            ),
+         }),
+         Components({
+            resolvers: [
+               IconsResolver({
+                  enabledCollections: ['ep'],
+               }),
+               ElementPlusResolver(),
+            ],
+            dts: fileURLToPath(
+               new URL('./types/components.d.ts', import.meta.url)
+            ),
+         }),
+         Icons({
+            autoInstall: true,
          }),
       ],
       server: {

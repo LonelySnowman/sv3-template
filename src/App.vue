@@ -1,15 +1,14 @@
 <template>
-   <router-view></router-view>
+   <el-container>
+      <el-header>
+         <Header></Header>
+      </el-header>
+      <el-main>
+         <router-view></router-view>
+      </el-main>
+   </el-container>
 </template>
 
-<script setup></script>
-
-<style>
-div {
-   position: absolute;
-   top: 0;
-   right: 0;
-   width: 100px;
-   height: 100px;
-}
-</style>
+<script setup>
+import Header from '@/layout/header/index.vue';
+</script>

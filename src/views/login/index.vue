@@ -1,0 +1,11 @@
+<template>
+   <div>login</div>
+</template>
+
+<script lang="ts" setup>
+// typeScript
+</script>
+
+<style lang="scss" scoped>
+/* scss */
+</style>

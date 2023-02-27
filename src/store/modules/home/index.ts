@@ -6,8 +6,9 @@ export const useHomeStore = defineStore(
    'home',
    {
       state: () => ({
-         title: 'sv3-template',
-         subTitle: '简洁易懂的Vue3快速开发模板',
+         title: 'SV3-Template',
+         subTitle: 'Vue3快速开发模板',
+         subTitle1: '简洁易懂，文档详细，含脚手架搭建教程',
       }),
       getters: {},
       actions: {

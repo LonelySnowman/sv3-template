@@ -12,7 +12,6 @@ export default [
                   username: 'admin',
                   roles: ['admin'],
                   accessToken: 'admin',
-                  refreshToken: 'adminRefresh',
                },
             };
          } else {
@@ -22,7 +21,6 @@ export default [
                   username: 'common',
                   roles: ['common'],
                   accessToken: 'common',
-                  refreshToken: 'commonRefresh',
                },
             };
          }

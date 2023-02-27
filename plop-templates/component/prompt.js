@@ -1,8 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-function verifyNames(pageName) {
-   const directories = fs.readdirSync(path.join(__dirname, '../../src/views/'));
-   return directories.includes(pageName);
+function verifyGlobalNames(comName) {
+   const directories = fs.readdirSync(
+      path.join(__dirname, '../../src/components/')
+   );
+   return directories.includes(comName);
 }
 
 module.exports = {
@@ -18,10 +20,10 @@ module.exports = {
          type: 'input',
          name: 'pageName',
          message: '请输入该组件属于的页面',
-         validate: (pageName) => {
-            if (!pageName || pageName.trim === '') {
+         validate: (comName) => {
+            if (!comName || comName.trim === '') {
                return '⭐页面名称不能为空';
-            } else if (!verifyNames(pageName)) {
+            } else if (!verifyGlobalNames(comName)) {
                return `⭐该页面不存在`;
             } else {
                return true;

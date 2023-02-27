@@ -1,36 +1,120 @@
 <template>
-   <div class="home">
-      <div class="title">{{ userInfo.title }}</div>
-      <div class="subTitle" @click="getInfo">{{ userInfo.subTitle }}</div>
-      <div></div>
+   <div class="main-content">
+      <h1>{{ userInfo.title }}</h1>
+      <h3 @click="getInfo">{{ userInfo.subTitle }}</h3>
+      <h4>{{ userInfo.subTitle1 }}</h4>
+      <div class="prj-dependencies">
+         <img
+            src="https://img.shields.io/badge/-Vite-E34F26?logo=vite&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-vue3-1572B6?logo=vuedotjs&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-Typescript-oringe?logo=typescript&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-Sass-E34F26?logo=sass&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-Pinia-1572B6?logo=vuedotjs&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-Pnpm-oringe?logo=pnpm&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-ESLint-E34F26?logo=eslint&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-Prettier-1572B6?logo=prettier&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-StyleLint-oringe?logo=stylelint&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-Axios-E34F26?logo=vuedotjs&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-ElementPlus-1572B6?logo=vuedotjs&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-Mock.js-oringe?logo=vuedotjs&style=flat-square&logoColor=white"
+         />
+      </div>
+      <div class="op-button">
+         <el-button round size="large">
+            快速开始
+            <i-ep-right></i-ep-right>
+         </el-button>
+         <el-button round size="large">GitHub</el-button>
+      </div>
    </div>
 </template>
 
 <script lang="ts" setup>
 import { useHomeStore } from '@/store';
 const store = useHomeStore();
-import { userLogin } from '@/api/user';
 
 const userInfo = {
    title: store.title,
    subTitle: store.subTitle,
-};
-
-const getInfo = () => {
-   console.log('OK');
-   const info = userLogin().then((res) => {
-      console.log(res);
-   });
+   subTitle1: store.subTitle1,
 };
 </script>
 
 <style lang="scss" scoped>
-.home {
+.main-content {
    display: flex;
    justify-content: center;
    align-items: center;
-   width: 100vw;
-   height: 100vh;
+   margin-top: 50px;
+   height: max-content;
    flex-direction: column;
+
+   h1 {
+      font-size: 3.5rem;
+      background-image: linear-gradient(to right, #42d392, #589bda);
+      color: transparent;
+      background-clip: text;
+      background-clip: text;
+   }
+
+   h3 {
+      font-size: 4rem;
+      color: #213547;
+   }
+
+   h4 {
+      font-size: 2rem;
+      color: #767676;
+   }
+
+   .prj-dependencies {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: row wrap;
+      height: max-content;
+
+      * {
+         margin: 5px;
+      }
+   }
+
+   .op-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 5px 0;
+
+      > :first-child {
+         color: white;
+         background-color: #42b883;
+      }
+
+      > :last-child {
+         background-color: #f1f1f1;
+      }
+   }
 }
 </style>

@@ -8,7 +8,6 @@ export const useUserStore = defineStore(
       state: () => ({
          username: '',
          accessToken: '',
-         refreshToken: '',
          roles: ['common'],
       }),
       getters: {},
@@ -19,7 +18,7 @@ export const useUserStore = defineStore(
       },
       persist: {
          key: 'accessToken',
-         storage: localStorage,
+         storage: sessionStorage,
          paths: ['accessToken'],
       },
    }
