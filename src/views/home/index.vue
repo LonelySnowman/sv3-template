@@ -73,10 +73,10 @@ const userInfo = {
 
    h1 {
       font-size: 3.5rem;
-      background-image: linear-gradient(to right, #42d392, #589bda);
       color: transparent;
+      -webkit-background-clip: text;
       background-clip: text;
-      background-clip: text;
+      background-image: linear-gradient(to right, #42d392, #589bda);
    }
 
    h3 {

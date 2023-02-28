@@ -23,12 +23,8 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
          vueJsx(),
          viteMockServe({
             mockPath: 'mock',
-            localEnabled: Boolean(env.VITE_APP_USE_MOCK),
+            localEnabled: true,
             prodEnabled: false, //实际开发请关闭，会影响打包体积
-            injectCode: `
-             import { setupProdMockServer } from '../mock/_createProdMockServer';
-             setupProdMockServer();
-            `,
          }),
          AutoImport({
             resolvers: [

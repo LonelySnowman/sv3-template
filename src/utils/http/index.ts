@@ -55,11 +55,9 @@ const request = <T = any>(config: AxiosRequestConfig): Promise<T> => {
       service
          .request<any, AxiosResponse<BaseResponse>>(conf)
          .then((res: AxiosResponse<BaseResponse>) => {
-            const {
-               data: { data },
-            } = res;
             // 此处返回data信息 也就是 api 中配置好的 Response类型
             // 因为我们已经将 AxiosResponse 的 status在拦截器中处理过
+            const data = res.data.data;
             resolve(data as T);
          });
    });

@@ -11,8 +11,12 @@ declare module '@vue/runtime-core' {
    export interface GlobalComponents {
       ElButton: typeof import('element-plus/es')['ElButton'];
       ElContainer: typeof import('element-plus/es')['ElContainer'];
+      ElForm: typeof import('element-plus/es')['ElForm'];
+      ElFormItem: typeof import('element-plus/es')['ElFormItem'];
       ElHeader: typeof import('element-plus/es')['ElHeader'];
       ElIcon: typeof import('element-plus/es')['ElIcon'];
+      ElInput: typeof import('element-plus/es')['ElInput'];
+      ElLink: typeof import('element-plus/es')['ElLink'];
       ElMain: typeof import('element-plus/es')['ElMain'];
       ElMenu: typeof import('element-plus/es')['ElMenu'];
       ElMenuItem: typeof import('element-plus/es')['ElMenuItem'];
@@ -22,6 +26,7 @@ declare module '@vue/runtime-core' {
       IEpEdit: typeof import('~icons/ep/edit')['default'];
       IEpHouse: typeof import('~icons/ep/house')['default'];
       IEpRight: typeof import('~icons/ep/right')['default'];
+      IEpUser: typeof import('~icons/ep/user')['default'];
       RouterLink: typeof import('vue-router')['RouterLink'];
       RouterView: typeof import('vue-router')['RouterView'];
    }

@@ -6,7 +6,7 @@ export const useUserStore = defineStore(
    'home',
    {
       state: () => ({
-         username: '',
+         username: '游客',
          accessToken: '',
          roles: ['common'],
       }),

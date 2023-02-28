@@ -1,14 +1,5 @@
 <template>
-   <el-container>
-      <el-header>
-         <Header></Header>
-      </el-header>
-      <el-main>
-         <router-view></router-view>
-      </el-main>
-   </el-container>
+   <router-view></router-view>
 </template>
 
-<script setup>
-import Header from '@/layout/header/index.vue';
-</script>
+<script setup></script>

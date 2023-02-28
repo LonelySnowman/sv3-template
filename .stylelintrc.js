@@ -1,10 +1,12 @@
 module.exports = {
+   // 继承推荐规范配置
    extends: [
       'stylelint-config-standard',
       'stylelint-config-prettier',
       'stylelint-config-recommended-scss',
       'stylelint-config-standard-vue',
    ],
+   // 添加规则插件
    plugins: ['stylelint-order'],
    // 不同格式的文件指定自定义语法
    overrides: [
@@ -28,19 +30,24 @@ module.exports = {
       '**/*.yaml',
    ],
    rules: {
-      'no-descending-specificity': null, // 禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器
+      // 指定类选择器的模式 https://stylelint.bootcss.com/user-guide/rules/list/selector-class-pattern
+      'selector-class-pattern': null,
+      // 不允许未知伪类选择器
+      'selector-pseudo-class-no-unknown': [
+         true,
+         {
+            ignorePseudoClasses: ['global'],
+         },
+      ],
+      // 不允许未知伪元素选择器
       'selector-pseudo-element-no-unknown': [
          true,
          {
             ignorePseudoElements: ['v-deep'],
          },
       ],
-      'selector-pseudo-class-no-unknown': [
-         true,
-         {
-            ignorePseudoClasses: ['deep'],
-         },
-      ],
+      // 允许对应内核前缀
+      'property-no-vendor-prefix': null,
       // 指定样式的排序
       'order/properties-order': [
          'position',
