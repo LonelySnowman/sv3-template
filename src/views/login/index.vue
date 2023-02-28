@@ -25,7 +25,9 @@
             />
          </el-form-item>
          <el-form-item>
-            <el-button type="primary" style="width: 100%">登录</el-button>
+            <el-button type="primary" style="width: 100%" @click="userLogin"
+               >登录</el-button
+            >
          </el-form-item>
          <div class="center">
             <el-link type="success" @click="toHome()">返回首页</el-link>
@@ -39,6 +41,9 @@ import { User, Lock } from '@element-plus/icons-vue';
 import { reactive } from 'vue';
 import type { FormRules } from 'element-plus';
 import router from '@/router';
+import { useUserStore } from '@/store';
+
+const userStore = useUserStore();
 
 const userInfo = reactive({
    username: '',
@@ -60,6 +65,11 @@ const rules = reactive<FormRules>({
       },
    ],
 });
+function userLogin() {
+   userStore.storeUserLogin(userInfo).then(() => {
+      toHome();
+   });
+}
 
 function toHome() {
    router.push('/home');

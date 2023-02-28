@@ -1,8 +1,8 @@
 <template>
    <div class="main-content">
-      <h1>{{ userInfo.title }}</h1>
-      <h3 @click="getInfo">{{ userInfo.subTitle }}</h3>
-      <h4>{{ userInfo.subTitle1 }}</h4>
+      <h1>{{ homeInfo.title }}</h1>
+      <h3>{{ homeInfo.subTitle }}</h3>
+      <h4>{{ homeInfo.subTitle1 }}</h4>
       <div class="prj-dependencies">
          <img
             src="https://img.shields.io/badge/-Vite-E34F26?logo=vite&style=flat-square&logoColor=white"
@@ -55,7 +55,7 @@
 import { useHomeStore } from '@/store';
 const store = useHomeStore();
 
-const userInfo = {
+const homeInfo = {
    title: store.title,
    subTitle: store.subTitle,
    subTitle1: store.subTitle1,

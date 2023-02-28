@@ -1,9 +1,10 @@
 import { defineStore } from 'pinia';
 import { UserState } from './types';
+import { userLogin } from '@/api/user';
 
 export const useUserStore = defineStore(
    // 唯一ID
-   'home',
+   'user',
    {
       state: () => ({
          username: '游客',
@@ -14,6 +15,14 @@ export const useUserStore = defineStore(
       actions: {
          updateInfo(partial: Partial<UserState>) {
             this.$patch(partial);
+         },
+         storeUserLogin(data) {
+            return userLogin(data).then((res) => {
+               this.username = res.username;
+               this.roles = res.roles;
+               this.accessToken = res.accessToken;
+               return res;
+            });
          },
       },
       persist: {

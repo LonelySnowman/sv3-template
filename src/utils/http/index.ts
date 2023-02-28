@@ -6,8 +6,9 @@ import type {
    AxiosError,
    InternalAxiosRequestConfig,
 } from 'axios';
-import { showMessage } from './status';
+import { getMessage } from './status';
 import { BaseResponse } from './types';
+import { ElMessage } from 'element-plus';
 
 const service: AxiosInstance = axios.create({
    baseURL: Boolean(import.meta.env.VITE_APP_USE_MOCK)
@@ -32,7 +33,7 @@ service.interceptors.response.use(
       if (response.status === 200) {
          return response;
       }
-      showMessage(response.status);
+      getMessage(response.status);
       return response;
    },
    // 请求失败
@@ -40,25 +41,45 @@ service.interceptors.response.use(
       const { response } = error;
       if (response) {
          // 请求已发出，但是不在2xx的范围
-         showMessage(response.status);
+         ElMessage({
+            message: getMessage(response.status),
+            type: 'error',
+         });
          return Promise.reject(response.data);
       }
-      showMessage('网络连接异常,请稍后再试!');
+      ElMessage({
+         message: '网络连接异常,请稍后再试!',
+         type: 'error',
+      });
    }
 );
 
 // T 为 res.data.data 的类型
 // BaseResponse 为 res.data 的类型
+// 此处相当于响应拦截
+// 为响应数据进行定制化处理
 const request = <T = any>(config: AxiosRequestConfig): Promise<T> => {
    const conf = config;
-   return new Promise((resolve) => {
+   return new Promise((resolve, reject) => {
       service
          .request<any, AxiosResponse<BaseResponse>>(conf)
          .then((res: AxiosResponse<BaseResponse>) => {
-            // 此处返回data信息 也就是 api 中配置好的 Response类型
-            // 因为我们已经将 AxiosResponse 的 status在拦截器中处理过
-            const data = res.data.data;
-            resolve(data as T);
+            const data = res.data;
+            // 如果data.code为错误代码返回message信息
+            if (data.code != 0) {
+               ElMessage({
+                  message: data.message,
+                  type: 'error',
+               });
+               reject(data.message);
+            } else {
+               ElMessage({
+                  message: data.message,
+                  type: 'success',
+               });
+               // 此处返回data信息 也就是 api 中配置好的 Response类型
+               resolve(data.data as T);
+            }
          });
    });
 };

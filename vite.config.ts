@@ -4,10 +4,11 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { viteMockServe } from 'vite-plugin-mock';
 import { fileURLToPath } from 'url';
-import Icons from 'unplugin-icons/dist/vite.js';
-import IconsResolver from 'unplugin-icons/dist/resolver.js';
+import Icons from 'unplugin-icons/vite';
+import IconsResolver from 'unplugin-icons/resolver';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
+import ElementPlus from 'unplugin-element-plus/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
@@ -26,6 +27,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             localEnabled: true,
             prodEnabled: false, //实际开发请关闭，会影响打包体积
          }),
+         ElementPlus({}),
          AutoImport({
             resolvers: [
                IconsResolver({

@@ -12,10 +12,16 @@
       </el-menu-item>
       <el-menu-item index="/login">登录</el-menu-item>
       <el-menu-item disabled class="username"
-         ><i-ep-user></i-ep-user>游客</el-menu-item
+         ><i-ep-user></i-ep-user>{{ username }}</el-menu-item
       >
    </el-menu>
 </template>
+
+<script lang="ts" setup>
+import { useUserStore } from '@/store/modules/user';
+const store = useUserStore();
+const username = store.username;
+</script>
 
 <style scoped>
 .flex-grow {

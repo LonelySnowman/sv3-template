@@ -1,5 +1,10 @@
-import { get } from '@/utils/http';
+import { post } from '@/utils/http';
+import { LoginRequest, LoginResponse } from '@/api/user/types';
 
-export const userLogin = async (params?: any) => {
-   return get<any>({}, '/login', params);
+export const userLogin = async (data?: LoginRequest) => {
+   return post<LoginResponse>({}, '/login', data);
+};
+
+export const getUserInfo = async (data?: LoginRequest) => {
+   return post<LoginResponse>({}, '/getUserInfo', data);
 };

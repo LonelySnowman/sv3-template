@@ -1,4 +1,4 @@
-export const showMessage = (status: number | string): string => {
+export const getMessage = (status: number | string): string => {
    let message = '';
    switch (status) {
       case 400:

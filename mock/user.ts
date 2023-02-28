@@ -2,12 +2,12 @@ import { MockMethod } from 'vite-plugin-mock';
 export default [
    {
       url: '/mock/api/getUserInfo',
-      method: 'get',
+      method: 'post',
       response: ({ body }) => {
-         if (body.username === 'admin') {
+         if (body.accessToken === 'admin') {
             return {
-               code: 1,
-               success: true,
+               code: 0,
+               message: '登录成功',
                data: {
                   username: 'admin',
                   roles: ['admin'],
@@ -16,8 +16,8 @@ export default [
             };
          } else {
             return {
-               code: 1,
-               success: true,
+               code: 0,
+               message: '登录成功',
                data: {
                   username: 'common',
                   roles: ['common'],
@@ -29,12 +29,23 @@ export default [
    },
    {
       url: '/mock/api/login',
-      method: 'get',
+      method: 'post',
       response: ({ body }) => {
-         if (body.username === 'admin') {
+         if (body.username !== body.password) {
             return {
                code: 1,
-               success: true,
+               message: '密码错误',
+               data: {
+                  username: '',
+                  roles: [],
+                  accessToken: '',
+               },
+            };
+         }
+         if (body.username === 'admin') {
+            return {
+               code: 0,
+               message: '登录成功',
                data: {
                   username: 'admin',
                   roles: ['admin'],
@@ -43,8 +54,8 @@ export default [
             };
          } else {
             return {
-               code: 1,
-               success: true,
+               code: 0,
+               message: '登录成功',
                data: {
                   username: 'common',
                   roles: ['common'],
