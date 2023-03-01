@@ -3,6 +3,10 @@ export type LoginRequest = {
    password: string;
 };
 
+export type reLoginRequest = {
+   accessToken: string;
+};
+
 export type LoginResponse = {
    username: string;
    roles: Array<string>;

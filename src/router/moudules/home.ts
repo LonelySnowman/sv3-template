@@ -6,7 +6,7 @@ export default {
    name: 'Home',
    component: () => import('@/layout/index.vue'),
    meta: {
-      role: ['common'],
+      role: ['common', 'admin'],
    },
    children: [
       {

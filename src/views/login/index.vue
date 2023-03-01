@@ -41,7 +41,7 @@ import { User, Lock } from '@element-plus/icons-vue';
 import { reactive } from 'vue';
 import type { FormRules } from 'element-plus';
 import router from '@/router';
-import { useUserStore } from '@/store';
+import { useUserStore } from '@/store/modules/user';
 
 const userStore = useUserStore();
 

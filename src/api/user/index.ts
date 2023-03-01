@@ -1,10 +1,10 @@
-import { post } from '@/utils/http';
-import { LoginRequest, LoginResponse } from '@/api/user/types';
+import { msgPost } from '@/utils/http';
+import { LoginRequest, LoginResponse, reLoginRequest } from '@/api/user/types';
 
 export const userLogin = async (data?: LoginRequest) => {
-   return post<LoginResponse>({}, '/login', data);
+   return msgPost<LoginResponse>({}, '/login', data);
 };
 
-export const getUserInfo = async (data?: LoginRequest) => {
-   return post<LoginResponse>({}, '/getUserInfo', data);
+export const refreshUserInfo = async (data?: reLoginRequest) => {
+   return msgPost<LoginResponse>({}, '/getUserInfo', data);
 };

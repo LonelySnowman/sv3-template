@@ -5,7 +5,7 @@ export default {
    name: 'LoginPage',
    component: () => import('@/views/login/index.vue'),
    meta: {
-      role: ['common'],
+      role: ['common', 'admin'],
    },
    children: [],
 } as RouteRecordRaw;

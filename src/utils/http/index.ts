@@ -58,7 +58,7 @@ service.interceptors.response.use(
 // BaseResponse 为 res.data 的类型
 // 此处相当于响应拦截
 // 为响应数据进行定制化处理
-const request = <T = any>(config: AxiosRequestConfig): Promise<T> => {
+const msgRequest = <T = any>(config: AxiosRequestConfig): Promise<T> => {
    const conf = config;
    return new Promise((resolve, reject) => {
       service
@@ -84,12 +84,28 @@ const request = <T = any>(config: AxiosRequestConfig): Promise<T> => {
    });
 };
 
+export function msgGet<T = any, U = any>(
+   config: AxiosRequestConfig,
+   url: string,
+   parms?: U
+): Promise<T> {
+   return msgRequest({ ...config, url, method: 'GET', params: parms });
+}
+
+export function msgPost<T = any, U = any>(
+   config: AxiosRequestConfig,
+   url: string,
+   data: U
+): Promise<T> {
+   return msgRequest({ ...config, url, method: 'POST', data: data });
+}
+
 export function get<T = any, U = any>(
    config: AxiosRequestConfig,
    url: string,
    parms?: U
 ): Promise<T> {
-   return request({ ...config, url, method: 'GET', params: parms });
+   return service.request({ ...config, url, method: 'GET', params: parms });
 }
 
 export function post<T = any, U = any>(
@@ -97,5 +113,5 @@ export function post<T = any, U = any>(
    url: string,
    data: U
 ): Promise<T> {
-   return request({ ...config, url, method: 'POST', data: data });
+   return service.request({ ...config, url, method: 'POST', data: data });
 }

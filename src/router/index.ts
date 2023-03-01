@@ -1,10 +1,17 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import home from './moudules/home';
-import login from './moudules/login';
+import { useUserStore } from '@/store/modules/user';
 
-const routes: Array<RouteRecordRaw> = [home, login];
+const modules: Record<string, any> = import.meta.glob(['./moudules/*.ts'], {
+   eager: true,
+});
+const routes: Array<RouteRecordRaw> = [];
+
+// 自动导入全部路由
+Object.keys(modules).forEach((key) => {
+   routes.push(modules[key].default);
+});
 
 //导入生成的路由数据
 const router = createRouter({
@@ -14,6 +21,7 @@ const router = createRouter({
 
 router.beforeEach(async (_to, _from, next) => {
    NProgress.start();
+   useUserStore().refreshUserInfo();
    next();
 });
 

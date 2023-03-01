@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useHomeStore } from '@/store';
+import { useHomeStore } from '@/store/modules/home';
 const store = useHomeStore();
 
 const homeInfo = {

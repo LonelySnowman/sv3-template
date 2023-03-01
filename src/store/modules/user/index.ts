@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { UserState } from './types';
-import { userLogin } from '@/api/user';
+import { refreshUserInfo, userLogin } from '@/api/user';
 
 export const useUserStore = defineStore(
    // 唯一ID
@@ -16,6 +16,7 @@ export const useUserStore = defineStore(
          updateInfo(partial: Partial<UserState>) {
             this.$patch(partial);
          },
+         // 用户登录
          storeUserLogin(data) {
             return userLogin(data).then((res) => {
                this.username = res.username;
@@ -24,9 +25,21 @@ export const useUserStore = defineStore(
                return res;
             });
          },
+         // 刷新用户信息
+         refreshUserInfo() {
+            if (this.username === '游客' && this.accessToken !== '') {
+               refreshUserInfo({
+                  accessToken: this.accessToken,
+               }).then((res) => {
+                  this.username = res.username;
+                  this.roles = res.roles;
+                  this.accessToken = res.accessToken;
+               });
+            }
+         },
       },
       persist: {
-         key: 'accessToken',
+         key: 'userInfo',
          storage: sessionStorage,
          paths: ['accessToken'],
       },

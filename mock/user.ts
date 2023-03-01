@@ -14,7 +14,7 @@ export default [
                   accessToken: 'admin',
                },
             };
-         } else {
+         } else if (body.accessToken === 'common') {
             return {
                code: 0,
                message: '登录成功',
@@ -22,6 +22,16 @@ export default [
                   username: 'common',
                   roles: ['common'],
                   accessToken: 'common',
+               },
+            };
+         } else {
+            return {
+               code: 1,
+               message: 'Token失效',
+               data: {
+                  username: '',
+                  roles: [],
+                  accessToken: '',
                },
             };
          }
