@@ -1,20 +1,20 @@
 const fs = require('fs');
 const path = require('path');
 const verifyFileExist = require('../utils');
-const baseFile = path.join(__dirname, '../../src/views');
+const baseFile = path.join(__dirname, '../../src/router/modules');
 
 module.exports = {
-   description: '创建页面',
+   description: '创建Router',
    prompts: [
       {
          type: 'input',
-         name: 'pageName',
-         message: '请输入页面名称',
+         name: 'routerName',
+         message: '请输入路由名称',
          validate: (dirName) => {
             if (!dirName || dirName.trim === '') {
-               return '组件名称不能为空';
-            } else if (verifyFileExist(dirName, baseFile)) {
-               return `页面已经存在`;
+               return '路由名称不能为空';
+            } else if (verifyFileExist(dirName, baseFile, '.ts')) {
+               return `路由已经存在`;
             } else {
                return true;
             }
@@ -22,13 +22,11 @@ module.exports = {
       },
    ],
    actions: (data) => {
-      const basePath = path.join(baseFile, `./${data.pageName}`);
-      fs.mkdirSync(basePath);
-      fs.mkdirSync(path.join(baseFile, `./${data.pageName}/components`));
+      const basePath = path.join(baseFile, `./${data.routerName}.ts`);
       const actions = [
          {
             type: 'add',
-            path: path.join(basePath, 'index.vue'),
+            path: basePath,
             templateFile: path.join(__dirname, './index.hbs'),
          },
       ];

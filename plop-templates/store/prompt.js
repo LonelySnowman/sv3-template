@@ -1,45 +1,20 @@
 const fs = require('fs');
 const path = require('path');
-function verifyGlobalNames(comName) {
-   const directories = fs.readdirSync(
-      path.join(__dirname, '../../src/components/')
-   );
-   return directories.includes(comName);
-}
+const verifyFileExist = require('../utils');
+const baseFile = path.join(__dirname, '../../src/store/modules');
 
 module.exports = {
-   description: '创建组件',
+   description: '创建Store',
    prompts: [
       {
-         type: 'confirm',
-         name: 'isGlobal',
-         message: '是否为全局组件',
-         default: false,
-      },
-      {
          type: 'input',
-         name: 'pageName',
-         message: '请输入组件创建路径',
-         validate: (comName) => {
-            if (!comName || comName.trim === '') {
-               return '⭐页面名称不能为空';
-            } else if (!verifyGlobalNames(comName)) {
-               return `⭐该页面不存在`;
-            } else {
-               return true;
-            }
-         },
-         when: (data) => {
-            return !data.isGlobal;
-         },
-      },
-      {
-         type: 'input',
-         name: 'name',
-         message: '请输入组件名称',
-         validate: (v) => {
-            if (!v || v.trim === '') {
-               return '组件名称不能为空';
+         name: 'storeName',
+         message: '请输入store的名称',
+         validate: (storeName) => {
+            if (!storeName || storeName.trim === '') {
+               return 'Store名称不能为空';
+            } else if (verifyFileExist(storeName, baseFile)) {
+               return `该Store已存在`;
             } else {
                return true;
             }
@@ -47,17 +22,18 @@ module.exports = {
       },
    ],
    actions: (data) => {
-      let path = '';
-      if (data.isGlobal) {
-         path = 'src/components/{{properCase name}}/Header.vue';
-      } else {
-         path = `${data.path}/components/{{properCase name}}/index.vue`;
-      }
+      let basePath = path.join(baseFile, `./${data.storeName}`);
+      fs.mkdirSync(basePath);
       const actions = [
          {
             type: 'add',
-            path: path,
-            templateFile: 'plop-templates/component/index.hbs',
+            path: path.join(basePath, 'index.ts'),
+            templateFile: path.join(__dirname, './index.hbs'),
+         },
+         {
+            type: 'add',
+            path: path.join(basePath, 'types.ts'),
+            templateFile: path.join(__dirname, './types.hbs'),
          },
       ];
       return actions;

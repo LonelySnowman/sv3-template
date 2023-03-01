@@ -4,7 +4,7 @@ import { refreshUserInfo, userLogin } from '@/api/user';
 
 export const useUserStore = defineStore(
    // 唯一ID
-   'user',
+   'User',
    {
       state: () => ({
          username: '游客',

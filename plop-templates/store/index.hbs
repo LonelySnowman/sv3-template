@@ -1,12 +1,22 @@
-<template>
-    <div>
-      {{ properCase pageName }}
-    </div>
-</template>
-<script setup{{#if isGlobal}} name="{{ properCase name }}" {{/if}}>
-// const { proxy } = getCurrentInstance()
-</script>
+import { defineStore } from 'pinia';
+import { {{ properCase storeName }}State } from './types';
 
-<style lang="less" scoped>
-
-</style>
+export const use{{ properCase storeName }}Store = defineStore(
+'{{ properCase storeName }}',
+  {
+    state: () => ({
+      info: ''
+    }),
+    getters: {},
+    actions: {
+    updateInfo(partial: Partial<{{ properCase storeName }}State>) {
+      this.$patch(partial);
+      },
+    },
+    persist: {
+      key: 'info',
+      storage: sessionStorage,
+      paths: ['info'],
+    },
+  }
+);

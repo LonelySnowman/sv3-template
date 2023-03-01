@@ -3,7 +3,7 @@ import { AppState } from './types';
 
 export const useHomeStore = defineStore(
    // 唯一ID
-   'home',
+   'Home',
    {
       state: () => ({
          title: 'SV3-Template',

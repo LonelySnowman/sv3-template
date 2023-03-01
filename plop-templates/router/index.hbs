@@ -1,0 +1,11 @@
+import { RouteRecordRaw } from 'vue-router';
+
+export default {
+  path: '/{{ routerName }}',
+  name: '{{ properCase routerName }}',
+  component: () => import('@/views/{{ routerName }}/index.vue'),
+  meta: {
+    role: ['common'],
+  },
+  children: [],
+} as RouteRecordRaw;
