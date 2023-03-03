@@ -2,7 +2,7 @@ import { RouteRecordRaw } from 'vue-router';
 
 export default {
    path: '/',
-   redirect: '/home',
+   redirect: '/login',
    name: 'Home',
    component: () => import('@/layout/index.vue'),
    meta: {

@@ -42,6 +42,7 @@ const logout = store.logOut;
 .logOut {
    display: flex;
    align-items: center;
+   margin: 0 5px;
    font-size: var(--el-menu-item-font-size);
    color: brown;
    opacity: 1;

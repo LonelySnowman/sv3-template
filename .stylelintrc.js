@@ -29,6 +29,7 @@ module.exports = {
       '**/*.md',
       '**/*.yaml',
    ],
+   // 规则配置 全部规则配置:https://stylelint.bootcss.com/user-guide/rules/list/
    rules: {
       // 指定类选择器的模式 https://stylelint.bootcss.com/user-guide/rules/list/selector-class-pattern
       'selector-class-pattern': null,
