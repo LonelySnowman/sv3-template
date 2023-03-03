@@ -14,7 +14,7 @@ export default {
          name: 'HomePage',
          component: () => import('@/views/home/index.vue'),
          meta: {
-            role: ['common'],
+            role: ['common', 'admin'],
          },
       },
    ],

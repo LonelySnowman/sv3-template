@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia';
+import pinia from '@/store';
 import { AppState } from './types';
 
-export const useHomeStore = defineStore(
+export const useHomeStoreHook = defineStore(
    // 唯一ID
    'Home',
    {
@@ -18,3 +19,7 @@ export const useHomeStore = defineStore(
       },
    }
 );
+
+export function useHomeStore() {
+   return useHomeStoreHook(pinia);
+}

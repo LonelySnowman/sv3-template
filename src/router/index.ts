@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { useUserStore } from '@/store/modules/user';
+import { ElMessage } from 'element-plus';
 
 const modules: Record<string, any> = import.meta.glob(['./modules/*.ts'], {
    eager: true,
@@ -19,10 +20,17 @@ const router = createRouter({
    routes,
 });
 
+const noStatusPage = ['/login'];
 router.beforeEach(async (_to, _from, next) => {
    NProgress.start();
-   useUserStore().refreshUserInfo();
-   next();
+   const userStore = useUserStore();
+   await userStore.refreshUserInfo();
+   const userIsLogin = userStore.isLogin();
+   if (userIsLogin || noStatusPage.includes(_to.path)) next();
+   else {
+      ElMessage('权限不足');
+      next('/login');
+   }
 });
 
 router.afterEach((_to) => {

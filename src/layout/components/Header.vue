@@ -10,7 +10,10 @@
          <i-ep-edit></i-ep-edit>
          教程
       </el-menu-item>
-      <el-menu-item index="/login">登录</el-menu-item>
+      <el-menu-item v-show="!userIsLogin" index="/login">登录</el-menu-item>
+      <div v-show="userIsLogin" disabled class="logOut" @click="logout">
+         退出登录
+      </div>
       <el-menu-item disabled class="username"
          ><i-ep-user></i-ep-user>{{ username }}</el-menu-item
       >
@@ -21,6 +24,8 @@
 import { useUserStore } from '@/store/modules/user';
 const store = useUserStore();
 const username = store.username;
+const userIsLogin = store.isLogin();
+const logout = store.logOut;
 </script>
 
 <style scoped>
@@ -31,5 +36,15 @@ const username = store.username;
 .username {
    color: brown;
    cursor: default;
+   opacity: 1;
+}
+
+.logOut {
+   display: flex;
+   align-items: center;
+   font-size: var(--el-menu-item-font-size);
+   color: brown;
+   opacity: 1;
+   cursor: pointer;
 }
 </style>
