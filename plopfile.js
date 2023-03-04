@@ -3,4 +3,5 @@ module.exports = function (plop) {
    plop.setGenerator('page', require('./plop-templates/page/prompt'));
    plop.setGenerator('store', require('./plop-templates/store/prompt'));
    plop.setGenerator('router', require('./plop-templates/router/prompt'));
+   plop.setGenerator('mock', require('./plop-templates/mock/prompt'));
 };

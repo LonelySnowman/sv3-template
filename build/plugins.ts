@@ -47,7 +47,7 @@ export function getPluginsList() {
             new URL('../types/components.d.ts', import.meta.url)
          ),
       }),
-      // 自动引热议ICON
+      // 自动引入ICON
       Icons({
          autoInstall: true,
       }),

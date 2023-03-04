@@ -1,0 +1,14 @@
+import { MockMethod } from 'vite-plugin-mock';
+export default [
+  {
+    url: '/mock/api/{{ mockName }}',
+    method: 'get',
+    response: ({ body }) => {
+      // Edit Your Code
+      return {
+        code: 1,
+        message: 'Hello {{ mockName }}'
+      };
+    },
+  },
+] as MockMethod[];
