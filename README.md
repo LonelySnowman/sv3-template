@@ -1,17 +1,5 @@
 <div class="prj-dependencies"><h1>sv3-template</h1></div>
 <div class="prj-dependencies">
-<style>
-    .prj-dependencies {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-flow: row wrap;
-        height: max-content;
-    }
-    .prj-dependencies * {
-        margin: 5px;
-    }
-    </style>
  <img
     src="https://img.shields.io/badge/-Vite-E34F26?logo=vite&style=flat-square&logoColor=white"
  />
