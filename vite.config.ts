@@ -2,7 +2,6 @@ import { defineConfig, loadEnv } from 'vite';
 import type { UserConfig, ConfigEnv } from 'vite';
 import { fileURLToPath } from 'url';
 import { getPluginsList } from './build/plugins';
-
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
    const root = process.cwd();
    const env = loadEnv(mode, root);
@@ -50,6 +49,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       resolve: {
          alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),
+            '#': fileURLToPath(new URL('./types', import.meta.url)),
          },
       },
    };

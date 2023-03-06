@@ -1,17 +1,17 @@
-<style>
-.prj-dependencies {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: row wrap;
-    height: max-content;
-}
-.prj-dependencies * {
-    margin: 5px;
-}
-</style>
 <div class="prj-dependencies"><h1>sv3-template</h1></div>
 <div class="prj-dependencies">
+<style>
+    .prj-dependencies {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        height: max-content;
+    }
+    .prj-dependencies * {
+        margin: 5px;
+    }
+    </style>
  <img
     src="https://img.shields.io/badge/-Vite-E34F26?logo=vite&style=flat-square&logoColor=white"
  />
@@ -50,8 +50,37 @@
  />
 </div>
 
-vue3 快速开发脚手架
-
-仍在加紧开发中
+### Vue3 快速开发脚手架
 
 官方文档：https://sv3-docs.snowhouse.space/
+
+-  使用 Vite 进行项目构建
+-  使用 TypeScript
+-  使用 Sass 编写样式
+-  对 pinia，vue-router，axios 进行模块化封装
+-  使用 CommitLint，ESLint，StyleLint，Prettier，LintStage 进行团队项目规范
+-  使用 Mock.js 模拟数据，使用 plop 快速生成开发模板
+-  使用 ElementPlus 组件库
+
+### 快速使用
+
+-  推荐使用 pnpm 进行依赖管理
+
+```bash
+git clone git@github.com:LonelySnowman/sv3-template.git
+
+cd sv3-template
+
+pnpm install
+```
+
+### 指令介绍
+
+-  dev：本地运行项目
+-  build：打包项目
+-  gen：生成预设模板
+-  lint:eslint：进行 eslint 校验
+-  lint:prettier：进行 prettier 代码风格校验
+-  lint:stylelint：对样式文件进行校验
+-  lint:lint-stage：对 git 缓存区的内容进行代码风格与质量校验
+-  prepare：初始化 husky
