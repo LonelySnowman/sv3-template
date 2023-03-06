@@ -14,18 +14,13 @@ declare module '@vue/runtime-core' {
       ElForm: typeof import('element-plus/es')['ElForm'];
       ElFormItem: typeof import('element-plus/es')['ElFormItem'];
       ElHeader: typeof import('element-plus/es')['ElHeader'];
-      ElIcon: typeof import('element-plus/es')['ElIcon'];
       ElInput: typeof import('element-plus/es')['ElInput'];
       ElLink: typeof import('element-plus/es')['ElLink'];
       ElMain: typeof import('element-plus/es')['ElMain'];
       ElMenu: typeof import('element-plus/es')['ElMenu'];
       ElMenuItem: typeof import('element-plus/es')['ElMenuItem'];
-      ELMessage: typeof import('element-plus/es')['ElMessage'];
-      ElSubMenu: typeof import('element-plus/es')['ElSubMenu'];
       IEpDocument: typeof import('~icons/ep/document')['default'];
-      IEpDoucment: typeof import('~icons/ep/doucment')['default'];
       IEpEdit: typeof import('~icons/ep/edit')['default'];
-      IEpHouse: typeof import('~icons/ep/house')['default'];
       IEpRight: typeof import('~icons/ep/right')['default'];
       IEpUser: typeof import('~icons/ep/user')['default'];
       RouterLink: typeof import('vue-router')['RouterLink'];
