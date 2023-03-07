@@ -1,6 +1,6 @@
 <div align="center"><h1>sv3-template</h1></div>
-<div align="center"><img src="https://sv3-docs.snowhouse.space/logo.png" alt="SV3-Family" class="logoImg"/></div>
-<div class="imgBox">
+<div align="center"><img src="https://sv3-docs.snowhouse.space/logo.png" alt="SV3-Family" width="150px"/></div>
+<div>
  <img
     src="https://img.shields.io/badge/-Vite-E34F26?logo=vite&style=flat-square&logoColor=white"
  />
