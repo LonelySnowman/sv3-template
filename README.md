@@ -1,5 +1,6 @@
-<div class="prj-dependencies"><h1>sv3-template</h1></div>
-<div class="prj-dependencies">
+<div align="center"><h1>sv3-template</h1></div>
+<div align="center"><img src="https://sv3-docs.snowhouse.space/logo.png" alt="img" style="zoom:25%;"/></div>
+<div class="imgBox">
  <img
     src="https://img.shields.io/badge/-Vite-E34F26?logo=vite&style=flat-square&logoColor=white"
  />
@@ -38,9 +39,22 @@
  />
 </div>
 
+<style>
+.imgBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.imgBox *{
+    margin: 3px 3px;
+}
+</style>
+
 ### Vue3 快速开发脚手架
 
-官方文档：https://sv3-docs.snowhouse.space/
+官方文档：[SV3-Family | Vue3](https://sv3-docs.snowhouse.space/)
 
 -  使用 Vite 进行项目构建
 -  使用 TypeScript
