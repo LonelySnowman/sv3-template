@@ -84,7 +84,7 @@ const msgRequest = <T = any>(config: AxiosRequestConfig): Promise<T> => {
    });
 };
 
-export function msgGet<T = any, U = any>(
+export function get<T = any, U = any>(
    config: AxiosRequestConfig,
    url: string,
    parms?: U
@@ -92,26 +92,10 @@ export function msgGet<T = any, U = any>(
    return msgRequest({ ...config, url, method: 'GET', params: parms });
 }
 
-export function msgPost<T = any, U = any>(
-   config: AxiosRequestConfig,
-   url: string,
-   data: U
-): Promise<T> {
-   return msgRequest({ ...config, url, method: 'POST', data: data });
-}
-
-export function get<T = any, U = any>(
-   config: AxiosRequestConfig,
-   url: string,
-   parms?: U
-): Promise<T> {
-   return service.request({ ...config, url, method: 'GET', params: parms });
-}
-
 export function post<T = any, U = any>(
    config: AxiosRequestConfig,
    url: string,
    data: U
 ): Promise<T> {
-   return service.request({ ...config, url, method: 'POST', data: data });
+   return msgRequest({ ...config, url, method: 'POST', data: data });
 }
