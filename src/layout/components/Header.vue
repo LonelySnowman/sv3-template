@@ -11,7 +11,7 @@
          教程
       </el-menu-item>
       <el-menu-item v-show="!userIsLogin" index="/login">登录</el-menu-item>
-      <div v-show="userIsLogin" disabled class="logOut" @click="logout">
+      <div v-show="userIsLogin" disabled class="logOut" @click="debounceLogOut">
          退出登录
       </div>
       <el-menu-item disabled class="username"
@@ -21,11 +21,13 @@
 </template>
 
 <script lang="ts" setup>
+import { debounce } from '@/hooks/utils';
 import { useUserStore } from '@/store/modules/user';
 const store = useUserStore();
 const username = store.username;
 const userIsLogin = store.isLogin();
 const logout = store.logOut;
+let debounceLogOut = debounce(logout, 200);
 </script>
 
 <style scoped>

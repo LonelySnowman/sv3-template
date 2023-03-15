@@ -25,7 +25,7 @@
             />
          </el-form-item>
          <el-form-item>
-            <el-button type="primary" style="width: 100%" @click="userLogin"
+            <el-button type="primary" style="width: 100%" @click="debounceLogin"
                >登录</el-button
             >
          </el-form-item>
@@ -42,6 +42,7 @@ import { reactive } from 'vue';
 import type { FormRules } from 'element-plus';
 import router from '@/router';
 import { useUserStore } from '@/store/modules/user';
+import { debounce } from '@/hooks/utils';
 
 const userStore = useUserStore();
 
@@ -70,6 +71,8 @@ function userLogin() {
       toHome();
    });
 }
+
+let debounceLogin = debounce(userLogin, 200);
 
 function toHome() {
    router.push('/home');
