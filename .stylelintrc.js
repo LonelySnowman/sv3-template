@@ -31,6 +31,8 @@ module.exports = {
    ],
    // 规则配置 全部规则配置:https://stylelint.bootcss.com/user-guide/rules/list/
    rules: {
+      // 便于配置变量 关闭未知属性检测
+      'property-no-unknown': null,
       // 指定类选择器的模式 https://stylelint.bootcss.com/user-guide/rules/list/selector-class-pattern
       'selector-class-pattern': null,
       // 不允许未知伪类选择器

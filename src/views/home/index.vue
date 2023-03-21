@@ -42,23 +42,34 @@
          />
       </div>
       <div class="op-button">
-         <el-button round size="large">
+         <el-button round size="large" @click="toQuickStart">
             快速开始
             <i-ep-right></i-ep-right>
          </el-button>
-         <el-button round size="large">GitHub</el-button>
+         <el-button round size="large" @click="toGitHub">GitHub</el-button>
       </div>
    </div>
 </template>
 
 <script lang="ts" setup>
 import { useHomeStore } from '@/store/modules/home';
+import router from '@/router';
 const store = useHomeStore();
 
 const homeInfo = {
    title: store.title,
    subTitle: store.subTitle,
    subTitle1: store.subTitle1,
+};
+
+// 跳转到快速开始页面
+const toQuickStart = () => {
+   window.open('https://sv3-docs.snowhouse.space/guide/sv3/quickstart.html');
+};
+
+// 跳转到GitHub页面
+const toGitHub = () => {
+   window.open('https://github.com/LonelySnowman/sv3-template');
 };
 </script>
 

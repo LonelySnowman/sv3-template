@@ -1,12 +1,12 @@
 <template>
-   <el-menu default-active="/" mode="horizontal" :ellipsis="false" router>
-      <el-menu-item index="/">SV3-Template</el-menu-item>
+   <el-menu default-active="/" mode="horizontal" :ellipsis="false">
+      <el-menu-item index="/" router>SV3-Template</el-menu-item>
       <div class="flex-grow"></div>
-      <el-menu-item index="/document">
+      <el-menu-item index="/document" @click="toCourse">
          <i-ep-document></i-ep-document>
          文档
       </el-menu-item>
-      <el-menu-item index="/course">
+      <el-menu-item index="/course" @click="toCourse">
          <i-ep-edit></i-ep-edit>
          教程
       </el-menu-item>
@@ -28,6 +28,16 @@ const username = store.username;
 const userIsLogin = store.isLogin();
 const logout = store.logOut;
 let debounceLogOut = debounce(logout, 200);
+
+// 前往文档页面
+const toDocument = () => {
+   window.open('https://sv3-docs.snowhouse.space/');
+};
+
+// 前往教程页面
+const toCourse = () => {
+   window.open('https://sv3-docs.snowhouse.space/course/sv3/');
+};
 </script>
 
 <style scoped>
