@@ -1,4 +1,5 @@
-:root {
-   dark-background-color: black;
-   dark-font-color: white;
+html[data-theme='dark']:root {
+   --background-color: black;
+   --font-color: white;
+   --sub-title-color: white;
 }

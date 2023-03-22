@@ -87,14 +87,15 @@ function toHome() {
 
 .login-box {
    h1 {
-      color: gray;
+      color: var(--sub-title-color);
    }
 
    display: flex;
    justify-content: center;
    align-items: center;
-   flex-direction: column;
    height: 100vh;
+   background-color: var(--background-color);
+   flex-direction: column;
 }
 
 .center {

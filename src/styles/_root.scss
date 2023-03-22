@@ -1,0 +1,9 @@
+body {
+   background-color: var(--background-color);
+}
+
+:root {
+   --el-fill-color-blank: var(--background-color);
+   --el-text-color-primary: var(--font-color);
+   --el-bg-color: var(--background-color);
+}
