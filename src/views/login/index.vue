@@ -47,8 +47,8 @@ import { debounce } from '@/hooks/utils';
 const userStore = useUserStore();
 
 const userInfo = reactive({
-   username: '',
-   password: '',
+   username: 'admin',
+   password: 'admin',
 });
 const rules = reactive<FormRules>({
    username: [
