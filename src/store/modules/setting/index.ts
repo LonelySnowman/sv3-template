@@ -14,12 +14,16 @@ export const useSettingStoreHook = defineStore('Setting', {
       changeTheme(themeData, val) {
          themeData.value = val;
          this.theme = val;
-         const element = document.getElementsByTagName('html')[0];
-         element.setAttribute('data-theme', val ? 'light' : 'dark');
+         document.documentElement.setAttribute(
+            'data-theme',
+            val ? 'light' : 'dark'
+         );
       },
       loadingSetting() {
-         const element = document.getElementsByTagName('html')[0];
-         element.setAttribute('data-theme', this.theme ? 'light' : 'dark');
+         document.documentElement.setAttribute(
+            'data-theme',
+            this.theme ? 'light' : 'dark'
+         );
       },
    },
    persist: {
