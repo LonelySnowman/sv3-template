@@ -27,10 +27,7 @@ router.beforeEach(async (_to, _from, next) => {
    await userStore.refreshUserInfo();
    const userIsLogin = userStore.isLogin();
    if (userIsLogin || noStatusPage.includes(_to.path)) next();
-   else {
-      ElMessage('权限不足');
-      next('/login');
-   }
+   else next('/login');
 });
 
 router.afterEach((_to) => {
