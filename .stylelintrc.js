@@ -31,6 +31,10 @@ module.exports = {
    ],
    // 规则配置 全部规则配置:https://stylelint.bootcss.com/user-guide/rules/list/
    rules: {
+      // 允许空样式文件
+      'no-empty-source': null,
+      // 允许重复字体族
+      'font-family-no-duplicate-names': null,
       // 便于配置变量 关闭未知属性检测
       'property-no-unknown': null,
       // 指定类选择器的模式 https://stylelint.bootcss.com/user-guide/rules/list/selector-class-pattern
