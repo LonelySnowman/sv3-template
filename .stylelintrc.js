@@ -1,3 +1,6 @@
+/*
+ * @StyleLint规则配置: https://www.stylelint.com.cn/user-guide/rules/list
+ */
 module.exports = {
    // 继承推荐规范配置
    extends: [
@@ -29,7 +32,6 @@ module.exports = {
       '**/*.md',
       '**/*.yaml',
    ],
-   // 规则配置 全部规则配置:https://stylelint.bootcss.com/user-guide/rules/list/
    rules: {
       // 允许空样式文件
       'no-empty-source': null,
@@ -37,7 +39,7 @@ module.exports = {
       'font-family-no-duplicate-names': null,
       // 便于配置变量 关闭未知属性检测
       'property-no-unknown': null,
-      // 指定类选择器的模式 https://stylelint.bootcss.com/user-guide/rules/list/selector-class-pattern
+      // 指定类选择器的模式
       'selector-class-pattern': null,
       // 不允许未知伪类选择器
       'selector-pseudo-class-no-unknown': [
