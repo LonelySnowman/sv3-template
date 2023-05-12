@@ -1,9 +1,14 @@
-/dist/*
-.local
-.output.js
-/node_modules/**
+node_modules
+dist
 
-**/*.svg
-**/*.sh
+*.woff
+*.ttf
+*.md
 
-/public/*
+.vscode
+.idea
+
+.husky
+public
+
+Dockerfile
