@@ -10,5 +10,6 @@ dist
 
 .husky
 public
+.npmrc
 
 Dockerfile
