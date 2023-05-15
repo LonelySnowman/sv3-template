@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import pinia from '@/store';
 import { AppState } from './types';
 
-export const useHomeStoreHook = defineStore(
+export const useHomeStore = defineStore(
    // 唯一ID
    'Home',
    {
@@ -20,6 +20,6 @@ export const useHomeStoreHook = defineStore(
    }
 );
 
-export function useHomeStore() {
-   return useHomeStoreHook(pinia);
+export function useHomeStoreHook() {
+   return useHomeStore(pinia);
 }

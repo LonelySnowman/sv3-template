@@ -41,10 +41,10 @@ import { User, Lock } from '@element-plus/icons-vue';
 import { reactive } from 'vue';
 import type { FormRules } from 'element-plus';
 import { backToHome } from '@/utils/router';
-import { useUserStore } from '@/store/modules/user';
+import { useUserStoreHook } from '@/store/modules/user';
 import { debounce } from '@/hooks/utils';
 
-const userStore = useUserStore();
+const userStore = useUserStoreHook();
 
 const userInfo = reactive({
    username: 'admin',

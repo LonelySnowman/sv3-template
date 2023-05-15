@@ -4,7 +4,7 @@ import pinia from '@/store';
 import { refreshUserInfo, userLogin } from '@/api/user';
 import router from '@/router';
 
-export const useUserStoreHook = defineStore(
+export const useUserStore = defineStore(
    // 唯一ID
    'User',
    {
@@ -71,6 +71,6 @@ export const useUserStoreHook = defineStore(
    }
 );
 
-export function useUserStore() {
-   return useUserStoreHook(pinia);
+export function useUserStoreHook() {
+   return useUserStore(pinia);
 }

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import pinia from '@/store';
 import { {{ properCase storeName }}State } from './types';
 
-export const use{{ properCase storeName }}StoreHook = defineStore(
+export const use{{ properCase storeName }}Store = defineStore(
 '{{ properCase storeName }}',
   {
     state: () => ({
@@ -23,6 +23,6 @@ export const use{{ properCase storeName }}StoreHook = defineStore(
 );
 
 
-export function use{{ properCase storeName }}Store() {
-  return use{{ properCase storeName }}StoreHook(pinia);
+export function use{{ properCase storeName }}StoreHook() {
+  return use{{ properCase storeName }}Store(pinia);
 }

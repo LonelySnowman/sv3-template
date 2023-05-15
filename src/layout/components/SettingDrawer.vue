@@ -15,11 +15,11 @@
 </template>
 
 <script setup lang="ts">
-import { useSettingStore } from '@/store/modules/setting';
+import { useSettingStoreHook } from '@/store/modules/setting';
 import { Sunny, Moon } from '@element-plus/icons-vue';
 import { ref } from 'vue';
 
-let settingStore = useSettingStore();
+let settingStore = useSettingStoreHook();
 let themeData = ref(settingStore.theme);
 const changeTheme = function (val) {
    settingStore.changeTheme(themeData, val);

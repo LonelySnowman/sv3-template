@@ -52,9 +52,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useHomeStore } from '@/store/modules/home';
-import router from '@/router';
-const store = useHomeStore();
+import { useHomeStoreHook } from '@/store/modules/home';
+const store = useHomeStoreHook();
 
 const homeInfo = {
    title: store.title,

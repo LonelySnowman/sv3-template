@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import pinia from '@/store';
 import { SettingState } from './types';
 
-export const useSettingStoreHook = defineStore('Setting', {
+export const useSettingStore = defineStore('Setting', {
    state: () => ({
       theme: true,
    }),
@@ -33,6 +33,6 @@ export const useSettingStoreHook = defineStore('Setting', {
    },
 });
 
-export function useSettingStore() {
-   return useSettingStoreHook(pinia);
+export function useSettingStoreHook() {
+   return useSettingStore(pinia);
 }

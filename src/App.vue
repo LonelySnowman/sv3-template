@@ -4,8 +4,8 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import { useSettingStore } from '@/store/modules/setting';
-let settingStore = useSettingStore();
+import { useSettingStoreHook } from '@/store/modules/setting';
+let settingStore = useSettingStoreHook();
 onMounted(() => {
    settingStore.loadingSetting();
 });

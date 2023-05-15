@@ -33,11 +33,11 @@
 <script lang="ts" setup>
 import SettingDrawer from '@/layout/components/SettingDrawer.vue';
 import { debounce } from '@/hooks/utils';
-import { useUserStore } from '@/store/modules/user';
+import { useUserStoreHook } from '@/store/modules/user';
 import { ref } from 'vue';
 
 // 退出登录控制模块
-const store = useUserStore();
+const store = useUserStoreHook();
 const username = store.username;
 const userIsLogin = store.isLogin();
 const logout = store.logOut;
