@@ -11,7 +11,12 @@
          教程
       </el-menu-item>
       <el-menu-item v-show="!userIsLogin" index="/login">登录</el-menu-item>
-      <div v-show="userIsLogin" disabled class="logOut" @click="debounceLogOut">
+      <div
+         v-show="userIsLogin"
+         disabled
+         class="menu-button"
+         @click="debounceLogOut"
+      >
          退出登录
       </div>
       <el-menu-item disabled class="username"
@@ -74,7 +79,7 @@ const toCourse = () => {
    opacity: 1;
 }
 
-.logOut {
+.menu-button {
    display: flex;
    align-items: center;
    margin: 0 5px;

@@ -1,0 +1,15 @@
+// 修改 el-button--primary 主题色
+.el-button--primary {
+   --el-color-primary: #f2a829;
+}
+
+.el-button--primary:hover,
+.el-button--primary:focus {
+   --el-button-hover-border-color: #ffc76b;
+   --el-button-hover-bg-color: #ffc76b;
+}
+
+.el-button--primary:active {
+   --el-button-active-border-color: #f2a829;
+   --el-button-active-bg-color: #f2a829;
+}

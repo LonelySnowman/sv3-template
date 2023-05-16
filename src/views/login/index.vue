@@ -1,38 +1,41 @@
 <template>
    <div class="login-box">
-      <h1>SV3-Template</h1>
-      <el-form
-         ref="ruleFormRef"
-         class="login-form"
-         :model="userInfo"
-         :rules="rules"
-         show-message
-         center
-      >
-         <el-form-item prop="username">
-            <el-input
-               v-model="userInfo.username"
-               :prefix-icon="User"
-               placeholder="账号"
-            />
-         </el-form-item>
-         <el-form-item prop="password">
-            <el-input
-               v-model="userInfo.password"
-               :prefix-icon="Lock"
-               type="password"
-               placeholder="密码"
-            />
-         </el-form-item>
-         <el-form-item>
-            <el-button type="primary" style="width: 100%" @click="debounceLogin"
-               >登录</el-button
-            >
-         </el-form-item>
-         <div class="center">
-            <el-link type="success" @click="toHome()">返回首页</el-link>
-         </div>
-      </el-form>
+      <img class="login-img" :src="loginIcon" />
+      <div class="login-form">
+         <h1>SV3-Template</h1>
+         <el-form
+            ref="ruleFormRef"
+            class="login-info"
+            :model="userInfo"
+            :rules="rules"
+            show-message
+            center
+         >
+            <el-form-item prop="username">
+               <el-input
+                  v-model="userInfo.username"
+                  :prefix-icon="User"
+                  placeholder="账号"
+               />
+            </el-form-item>
+            <el-form-item prop="password">
+               <el-input
+                  v-model="userInfo.password"
+                  :prefix-icon="Lock"
+                  type="password"
+                  placeholder="密码"
+               />
+            </el-form-item>
+            <el-form-item>
+               <el-button
+                  type="primary"
+                  style="width: 100%"
+                  @click="debounceLogin"
+                  >登录</el-button
+               >
+            </el-form-item>
+         </el-form>
+      </div>
    </div>
 </template>
 
@@ -43,6 +46,7 @@ import type { FormRules } from 'element-plus';
 import { backToHome } from '@/utils/router';
 import { useUserStoreHook } from '@/store/modules/user';
 import { debounce } from '@/hooks/utils';
+import loginIcon from '@/assets/imgs/login/team_up.svg';
 
 const userStore = useUserStoreHook();
 
@@ -76,30 +80,29 @@ let debounceLogin = debounce(userLogin, 200);
 </script>
 
 <style lang="scss" scoped>
-.login-form {
-   width: 20vw;
-   height: max-content;
-}
-
 .login-box {
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   height: 100vh;
+   background: var(--background-color);
    h1 {
       color: var(--sub-title-color);
    }
-
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
-   background-color: var(--background-color);
-   flex-direction: column;
+   .login-form {
+      width: 300px;
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      .login-info {
+         height: max-content;
+      }
+   }
 }
 
-.center {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin: 5px 0;
-   width: 100%;
-   height: max-content;
+@media screen and (max-width: 900px) {
+   .login-img {
+      display: none;
+   }
 }
 </style>

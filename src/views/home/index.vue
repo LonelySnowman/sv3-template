@@ -86,7 +86,7 @@ const toGitHub = () => {
       color: transparent;
       -webkit-background-clip: text;
       background-clip: text;
-      background-image: linear-gradient(to right, #42d392, #589bda);
+      background-image: linear-gradient(to right, #f2a829, #ffc76b);
    }
 
    h3 {
