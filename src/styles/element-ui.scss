@@ -1,33 +1,47 @@
+// 变更部分el变量 配置主题色
+:root {
+   --el-fill-color-blank: var(--sv3-backgroud-color);
+   --el-text-color-primary: var(--sv3-color-dark-black);
+   --el-bg-color: var(--sv3-backgroud-color);
+}
+
 // 修改 el-button--primary 主题色
 .el-button--primary {
-   --el-color-primary: #f2a829;
+   --el-color-primary: var(--sv3-color-main);
 }
 
 .el-button--primary:hover,
 .el-button--primary:focus {
-   --el-button-hover-border-color: #ffc76b;
-   --el-button-hover-bg-color: #ffc76b;
+   --el-button-hover-border-color: var(--sv3-color-main-light-1);
+   --el-button-hover-bg-color: var(--sv3-color-main-light-1);
 }
 
 .el-button--primary:active {
-   --el-button-active-border-color: #f2a829;
-   --el-button-active-bg-color: #f2a829;
+   --el-button-active-border-color: var(--sv3-color-main);
+   --el-button-active-bg-color: var(--sv3-color-main);
 }
 
 // 修改 menu--horizontal 激活主题色
 .el-menu.el-menu--horizontal > .el-menu-item.is-active {
-   border-bottom: 2px solid #f2a829;
-   color: #f2a829 !important;
+   border-bottom: 2px solid var(--sv3-color-main);
+   color: var(--sv3-color-main) !important;
 }
 
 .el-menu.el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
 .el-menu.el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
-   color: #f2a829;
-   background-color: #ffe9cd7a;
+   color: var(--sv3-color-main);
+   background-color: var(--sv3-color-main-light-2);
 }
 
 // 修改 el-switch--large 主题色
 .el-switch.is-checked.el-switch--large .el-switch__core {
-   background-color: #f2a829;
-   border-color: #f2a829;
+   background-color: var(--sv3-color-main);
+   border-color: var(--sv3-color-main);
+}
+
+// 更改 el-input 获取焦点后的主题色
+.el-input {
+   .el-input__wrapper.is-focus {
+      box-shadow: 0 0 0 1px var(--sv3-color-main) inset;
+   }
 }

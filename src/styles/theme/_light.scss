@@ -1,5 +1,7 @@
 html[data-theme='light']:root {
-   --background-color: white;
-   --font-color: black;
-   --sub-title-color: gray;
+   // 背景主色调
+   --sv3-backgroud-color: white;
+   // 适配黑色主题的字体色
+   --sv3-color-dark-black: black;
+   --sv3-color-dark-gray: gray;
 }

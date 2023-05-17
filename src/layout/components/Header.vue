@@ -2,7 +2,7 @@
    <div class="header">
       <el-menu default-active="/" mode="horizontal" :ellipsis="false" router>
          <el-menu-item index="/">SV3-Template</el-menu-item>
-         <el-menu-item index="" @click="toCourse">
+         <el-menu-item index="" @click="toDocument">
             <i-ep-document></i-ep-document>
             文档
          </el-menu-item>
@@ -12,8 +12,13 @@
          </el-menu-item>
       </el-menu>
       <div class="flex-grow"></div>
-      <div class="flex-center m05"><i-ep-user></i-ep-user>{{ username }}</div>
-      <div class="flex-center m05 setting" @click="openSetting">
+      <div class="flex-center m05 color-dark-black">
+         <i-ep-user></i-ep-user>{{ username }}
+      </div>
+      <div
+         class="flex-center m05 color-dark-black setting"
+         @click="openSetting"
+      >
          <i-ep-setting></i-ep-setting>
       </div>
    </div>
@@ -94,7 +99,6 @@ const toCourse = () => {
 
 .setting {
    cursor: pointer;
-   color: var(--font-color);
 }
 
 .settingHeader {
@@ -102,7 +106,7 @@ const toCourse = () => {
    justify-content: space-between;
    align-items: center;
    height: 50px;
-   color: var(--font-color);
+   color: var(--sv3-color-dark-black);
 
    .closeButton {
       cursor: pointer;

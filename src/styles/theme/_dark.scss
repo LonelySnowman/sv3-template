@@ -1,5 +1,7 @@
 html[data-theme='dark']:root {
-   --background-color: black;
-   --font-color: white;
-   --sub-title-color: white;
+   // 背景主色调
+   --sv3-backgroud-color: black;
+   // 适配黑色主题的字体色
+   --sv3-color-dark-black: white;
+   --sv3-color-dark-gray: white;
 }

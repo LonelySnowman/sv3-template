@@ -85,10 +85,7 @@ let debounceLogin = debounce(userLogin, 200);
    justify-content: space-evenly;
    align-items: center;
    height: 100vh;
-   background: var(--background-color);
-   h1 {
-      color: var(--sub-title-color);
-   }
+   background: var(--sv3-backgroud-color);
    .login-form {
       width: 300px;
       display: flex;

@@ -1,5 +1,11 @@
 :root {
-   --el-fill-color-blank: var(--background-color);
-   --el-text-color-primary: var(--font-color);
-   --el-bg-color: var(--background-color);
+   // 主色调
+   --sv3-color-main: #f2a829;
+   --sv3-color-main-light-1: #ffc76b;
+   --sv3-color-main-light-2: #ffe9cd7a;
+   // 背景主色调
+   --sv3-backgroud-color: white;
+   // 适配黑色主题的字体色
+   --sv3-color-dark-black: black;
+   --sv3-color-dark-gray: gray;
 }
