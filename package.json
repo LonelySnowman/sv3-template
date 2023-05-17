@@ -6,6 +6,7 @@
    "scripts": {
       "dev": "vite --mode development",
       "build": "vue-tsc --noEmit --skipLibCheck && vite build",
+      "preview": "vite preview",
       "gen": "plop",
       "lint:eslint": "eslint --cache --max-warnings 0 {type,build,src,mock}/**/*.{vue,ts,tsx} --fix",
       "lint:prettier": "prettier --write **/*.{js,json,tsx,css,less,scss,vue,html,md}",

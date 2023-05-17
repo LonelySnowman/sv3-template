@@ -2,7 +2,7 @@
    <router-view></router-view>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { onMounted } from 'vue';
 import { useSettingStoreHook } from '@/store/modules/setting';
 let settingStore = useSettingStoreHook();
