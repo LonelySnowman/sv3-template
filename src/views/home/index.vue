@@ -1,48 +1,11 @@
 <template>
    <div class="main-content">
-      <h1>{{ homeInfo.title }}</h1>
-      <h3>{{ homeInfo.subTitle }}</h3>
-      <h4>{{ homeInfo.subTitle1 }}</h4>
-      <div class="prj-dependencies">
-         <img
-            src="https://img.shields.io/badge/-Vite-E34F26?logo=vite&style=flat-square&logoColor=white"
-         />
-         <img
-            src="https://img.shields.io/badge/-vue3-1572B6?logo=vuedotjs&style=flat-square&logoColor=white"
-         />
-         <img
-            src="https://img.shields.io/badge/-Typescript-oringe?logo=typescript&style=flat-square&logoColor=white"
-         />
-         <img
-            src="https://img.shields.io/badge/-Sass-E34F26?logo=sass&style=flat-square&logoColor=white"
-         />
-         <img
-            src="https://img.shields.io/badge/-Pinia-1572B6?logo=vuedotjs&style=flat-square&logoColor=white"
-         />
-         <img
-            src="https://img.shields.io/badge/-Pnpm-oringe?logo=pnpm&style=flat-square&logoColor=white"
-         />
-         <img
-            src="https://img.shields.io/badge/-ESLint-E34F26?logo=eslint&style=flat-square&logoColor=white"
-         />
-         <img
-            src="https://img.shields.io/badge/-Prettier-1572B6?logo=prettier&style=flat-square&logoColor=white"
-         />
-         <img
-            src="https://img.shields.io/badge/-StyleLint-oringe?logo=stylelint&style=flat-square&logoColor=white"
-         />
-         <img
-            src="https://img.shields.io/badge/-Axios-E34F26?logo=vuedotjs&style=flat-square&logoColor=white"
-         />
-         <img
-            src="https://img.shields.io/badge/-ElementPlus-1572B6?logo=vuedotjs&style=flat-square&logoColor=white"
-         />
-         <img
-            src="https://img.shields.io/badge/-Mock.js-oringe?logo=vuedotjs&style=flat-square&logoColor=white"
-         />
-      </div>
+      <span class="title">{{ homeInfo.title }}</span>
+      <span class="subtitle">{{ homeInfo.subTitle }}</span>
+      <span class="content">{{ homeInfo.subTitle1 }}</span>
+      <ShieldsIcon></ShieldsIcon>
       <div class="op-button">
-         <el-button round size="large" @click="toQuickStart">
+         <el-button round size="large" type="primary" @click="toQuickStart">
             快速开始
             <i-ep-right></i-ep-right>
          </el-button>
@@ -52,6 +15,7 @@
 </template>
 
 <script lang="ts" setup>
+import ShieldsIcon from '@/views/home/components/ShieldsIcon.vue';
 import { useHomeStoreHook } from '@/store/modules/home';
 const store = useHomeStoreHook();
 
@@ -81,34 +45,23 @@ const toGitHub = () => {
    height: max-content;
    flex-direction: column;
 
-   h1 {
-      font-size: 3.5rem;
+   .title {
+      font-size: 60px;
+      font-weight: 700;
       color: transparent;
       -webkit-background-clip: text;
       background-clip: text;
       background-image: linear-gradient(to right, #f2a829, #ffc76b);
    }
-
-   h3 {
-      font-size: 4rem;
+   .subtitle {
+      font-size: 40px;
+      font-weight: 500;
       color: #213547;
    }
 
-   h4 {
-      font-size: 2rem;
+   .content {
+      font-size: 30px;
       color: #767676;
-   }
-
-   .prj-dependencies {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-flow: row wrap;
-      height: max-content;
-
-      * {
-         margin: 5px;
-      }
    }
 
    .op-button {
@@ -116,11 +69,6 @@ const toGitHub = () => {
       justify-content: center;
       align-items: center;
       margin: 5px 0;
-
-      > :first-child {
-         color: white;
-         background-color: #42b883;
-      }
 
       > :last-child {
          background-color: #f1f1f1;

@@ -13,3 +13,21 @@
    --el-button-active-border-color: #f2a829;
    --el-button-active-bg-color: #f2a829;
 }
+
+// 修改 menu--horizontal 激活主题色
+.el-menu.el-menu--horizontal > .el-menu-item.is-active {
+   border-bottom: 2px solid #f2a829;
+   color: #f2a829 !important;
+}
+
+.el-menu.el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
+.el-menu.el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+   color: #f2a829;
+   background-color: #ffe9cd7a;
+}
+
+// 修改 el-switch--large 主题色
+.el-switch.is-checked.el-switch--large .el-switch__core {
+   background-color: #f2a829;
+   border-color: #f2a829;
+}
