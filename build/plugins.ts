@@ -25,29 +25,19 @@ export function getPluginsList() {
       ElementPlus({}),
       // 自动引入组件及ICON
       AutoImport({
-         resolvers: [
-            IconsResolver({
-               prefix: 'Icon',
-            }),
-            ElementPlusResolver(),
-         ],
+         resolvers: [IconsResolver(), ElementPlusResolver()],
          dts: fileURLToPath(
             new URL('../types/auto-imports.d.ts', import.meta.url)
          ),
       }),
       // 自动注册组件
       Components({
-         resolvers: [
-            IconsResolver({
-               enabledCollections: ['ep'],
-            }),
-            ElementPlusResolver(),
-         ],
+         resolvers: [IconsResolver(), ElementPlusResolver()],
          dts: fileURLToPath(
             new URL('../types/components.d.ts', import.meta.url)
          ),
       }),
-      // 自动引入ICON
+      // 自动安装图标
       Icons({
          autoInstall: true,
       }),
