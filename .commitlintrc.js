@@ -37,6 +37,7 @@ module.exports = {
             'build', // 修改项目构建配置
             'ci', // CI|CD 流程变更
             'revert', // 回滚某个更早之前的提交
+            'release', // 版本更新
             'chore', // 其他类型
          ],
       ],

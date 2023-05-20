@@ -48,8 +48,10 @@
 -  使用 Sass 编写样式
 -  对 pinia，vue-router，axios 进行模块化封装
 -  使用 CommitLint，ESLint，StyleLint，Prettier，LintStage 进行团队项目规范
--  使用 Mock.js 模拟数据，使用 plop 快速生成开发模板
+-  使用 Mock.js 模拟数据
+-  使用 Plop 快速生成开发模板
 -  使用 ElementPlus 组件库
+-  支持 Iconify 图标库自动引入
 
 ### 快速使用
 
@@ -67,6 +69,7 @@ pnpm install
 
 -  dev：本地运行项目
 -  build：打包项目
+-  preview：预览打包项目
 -  gen：生成预设模板
 -  lint:eslint：进行 eslint 校验
 -  lint:prettier：进行 prettier 代码风格校验
