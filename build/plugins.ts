@@ -19,7 +19,8 @@ export function getPluginsList() {
       viteMockServe({
          mockPath: 'mock',
          localEnabled: true,
-         prodEnabled: false, //实际开发请关闭，会影响打包体积
+         prodEnabled: true,
+         injectCode: ` import { setupProdMockServer } from './mockProdServer'; setupProdMockServer(); `,
       }),
       // 开启ElementPlus自动引入CSS
       ElementPlus({}),
