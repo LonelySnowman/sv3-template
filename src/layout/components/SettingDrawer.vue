@@ -20,7 +20,7 @@
 import { useSettingStoreHook } from '@/store/modules/setting';
 import { Sunny, Moon } from '@element-plus/icons-vue';
 import { ref } from 'vue';
-import { debounce } from '@/hooks/utils';
+import { debounce } from '@/utils/utils';
 import { useUserStoreHook } from '@/store/modules/user';
 
 let settingStore = useSettingStoreHook();

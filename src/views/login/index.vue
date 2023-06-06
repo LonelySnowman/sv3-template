@@ -28,9 +28,9 @@
             </el-form-item>
             <el-form-item>
                <el-button
+                  v-debounce:500="userLogin"
                   type="primary"
                   style="width: 100%"
-                  @click="debounceLogin"
                   >登录</el-button
                >
             </el-form-item>
@@ -45,8 +45,9 @@ import { reactive } from 'vue';
 import type { FormRules } from 'element-plus';
 import { backToHome } from '@/utils/router';
 import { useUserStoreHook } from '@/store/modules/user';
-import { debounce } from '@/hooks/utils';
 import loginIcon from '@/assets/imgs/login/team_up.svg';
+import vDebounce from '@/directive/debounce';
+import { debounce } from '@/utils/utils';
 
 const userStore = useUserStoreHook();
 
@@ -75,8 +76,6 @@ function userLogin() {
       backToHome();
    });
 }
-
-let debounceLogin = debounce(userLogin, 200);
 </script>
 
 <style lang="scss" scoped>

@@ -1,4 +1,4 @@
-export function debounce(fn: () => void, delay = 200): () => void {
+export function debounce(fn: () => any, delay = 200): () => void {
    let timer: null | number = null;
    return function (this: object, ...args: any) {
       timer && window.clearTimeout(timer);
@@ -9,7 +9,7 @@ export function debounce(fn: () => void, delay = 200): () => void {
    };
 }
 
-export function throttle(fn: () => void, delay = 200): () => void {
+export function throttle(fn: () => any, delay = 200): () => void {
    let timer: null | number = null;
    return function (this: object, ...args: any) {
       if (!timer) {
