@@ -8,8 +8,10 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import ElementPlus from 'unplugin-element-plus/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import { loadEnv } from 'vite';
 
-export function getPluginsList() {
+export function getPluginsList(mode: string): Array<any> {
+   const env = loadEnv(mode, process.cwd());
    return [
       // 编译Vue模板文件
       vue(),
@@ -18,8 +20,8 @@ export function getPluginsList() {
       // 开启mock服务器
       viteMockServe({
          mockPath: 'mock',
-         localEnabled: true,
-         prodEnabled: true,
+         localEnabled: Boolean(env.VITE_APP_ENV_USE_MOCK),
+         prodEnabled: Boolean(env.VITE_APP_PRO_USE_MOCK),
          injectCode: ` import { setupProdMockServer } from './mockProdServer'; setupProdMockServer(); `,
       }),
       // 开启ElementPlus自动引入CSS

@@ -10,7 +10,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       base: '/',
       publicDir: fileURLToPath(new URL('./public', import.meta.url)), // 打包路径
       assetsInclude: fileURLToPath(new URL('./src/assets', import.meta.url)), // 需要处理的静态资源位置
-      plugins: getPluginsList(),
+      plugins: getPluginsList(mode),
       server: {
          https: false,
          host: true,

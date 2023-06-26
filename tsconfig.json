@@ -44,7 +44,9 @@
          "#/*": ["types/*"]
       },
       // 配置虚拟目录
-      "rootDirs": []
+      "rootDirs": [],
+      // ts 类型声明文件位置
+      "typeRoots": ["./types", "./node_modules/@types/"]
    },
    // 指定需要编译文件
    "include": [
