@@ -12,6 +12,7 @@ import { loadEnv } from 'vite';
 
 export function getPluginsList(mode: string): Array<any> {
    const env = loadEnv(mode, process.cwd());
+   console.log(env);
    return [
       // 编译Vue模板文件
       vue(),
@@ -20,7 +21,7 @@ export function getPluginsList(mode: string): Array<any> {
       // 开启mock服务器
       viteMockServe({
          mockPath: 'mock',
-         localEnabled: Boolean(env.VITE_APP_ENV_USE_MOCK),
+         localEnabled: Boolean(env.VITE_APP_DEV_USE_MOCK),
          prodEnabled: Boolean(env.VITE_APP_PRO_USE_MOCK),
          injectCode: ` import { setupProdMockServer } from './mockProdServer'; setupProdMockServer(); `,
       }),
