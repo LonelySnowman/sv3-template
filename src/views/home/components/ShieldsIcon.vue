@@ -1,25 +1,39 @@
 <template>
    <div class="prj-dependencies">
-      <img v-for="(img, index) in imgList" :key="index" :src="img" alt=" " />
+      <div>
+         <img
+            src="https://sv3-docs.snowhouse.space/logo.png"
+            alt="SV3-Family"
+            width="150px"
+         />
+      </div>
+      <div>
+         <img
+            src="https://skillicons.dev/icons?i=vue,vite,ts,scss"
+            alt="skill"
+         />
+      </div>
+      <div>
+         <img
+            src="https://img.shields.io/badge/-Pinia-1572B6?logo=vuedotjs&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-ElementPlus-1572B6?logo=vuedotjs&style=flat-square&logoColor=white"
+         />
+      </div>
+      <div>
+         <img
+            src="https://img.shields.io/badge/-ESLint-E34F26?logo=eslint&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-Prettier-1572B6?logo=prettier&style=flat-square&logoColor=white"
+         />
+         <img
+            src="https://img.shields.io/badge/-StyleLint-oringe?logo=stylelint&style=flat-square&logoColor=white"
+         />
+      </div>
    </div>
 </template>
-
-<script setup lang="ts">
-const imgList = [
-   'https://img.shields.io/badge/-Vite-E34F26?logo=vite&style=flat-square&logoColor=white',
-   'https://img.shields.io/badge/-vue3-1572B6?logo=vuedotjs&style=flat-square&logoColor=white',
-   'https://img.shields.io/badge/-Typescript-oringe?logo=typescript&style=flat-square&logoColor=white',
-   'https://img.shields.io/badge/-Sass-E34F26?logo=sass&style=flat-square&logoColor=white',
-   'https://img.shields.io/badge/-Pinia-1572B6?logo=vuedotjs&style=flat-square&logoColor=white',
-   'https://img.shields.io/badge/-Pnpm-oringe?logo=pnpm&style=flat-square&logoColor=white',
-   'https://img.shields.io/badge/-ESLint-E34F26?logo=eslint&style=flat-square&logoColor=white',
-   'https://img.shields.io/badge/-Prettier-1572B6?logo=prettier&style=flat-square&logoColor=white',
-   'https://img.shields.io/badge/-StyleLint-oringe?logo=stylelint&style=flat-square&logoColor=white',
-   'https://img.shields.io/badge/-Axios-E34F26?logo=vuedotjs&style=flat-square&logoColor=white',
-   'https://img.shields.io/badge/-ElementPlus-1572B6?logo=vuedotjs&style=flat-square&logoColor=white',
-   'https://img.shields.io/badge/-Mock.js-oringe?logo=vuedotjs&style=flat-square&logoColor=white',
-];
-</script>
 
 <style scoped lang="scss">
 .prj-dependencies {
@@ -28,6 +42,7 @@ const imgList = [
    align-items: center;
    flex-flow: row wrap;
    height: max-content;
+   flex-direction: column;
    img {
       margin: 5px;
    }

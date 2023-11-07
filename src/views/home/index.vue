@@ -5,11 +5,23 @@
       <span class="content">{{ homeInfo.subTitle1 }}</span>
       <ShieldsIcon></ShieldsIcon>
       <div class="op-button">
-         <el-button round size="large" type="primary" @click="toQuickStart">
-            快速开始
-            <i-ep-right></i-ep-right>
+         <el-button round size="large" type="primary">
+            <a
+               target="_blank"
+               href="https://sv3-docs.snowhouse.space/guide/sv3/quickstart.html"
+            >
+               快速开始
+               <i-ep-right></i-ep-right>
+            </a>
          </el-button>
-         <el-button round size="large" @click="toGitHub">GitHub</el-button>
+         <el-button round size="large">
+            <a
+               href="https://github.com/LonelySnowman/sv3-template"
+               target="_blank"
+            >
+               GitHub
+            </a>
+         </el-button>
       </div>
    </div>
 </template>
@@ -24,16 +36,6 @@ const homeInfo = {
    subTitle: store.subTitle,
    subTitle1: store.subTitle1,
 };
-
-// 跳转到快速开始页面
-const toQuickStart = () => {
-   window.open('https://sv3-docs.snowhouse.space/guide/sv3/quickstart.html');
-};
-
-// 跳转到GitHub页面
-const toGitHub = () => {
-   window.open('https://github.com/LonelySnowman/sv3-template');
-};
 </script>
 
 <style lang="scss" scoped>
@@ -41,10 +43,12 @@ const toGitHub = () => {
    display: flex;
    justify-content: center;
    align-items: center;
-   margin-top: 50px;
-   height: max-content;
    flex-direction: column;
-
+   height: calc(100vh - 100px);
+   a {
+      display: flex;
+      align-items: center;
+   }
    .title {
       font-size: 60px;
       font-weight: 700;
@@ -58,18 +62,19 @@ const toGitHub = () => {
       font-weight: 500;
       color: #213547;
    }
-
    .content {
       font-size: 30px;
       color: #767676;
    }
-
    .op-button {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 5px 0;
-
+      button:first-child {
+         a {
+            color: #ffffff;
+         }
+      }
       > :last-child {
          background-color: #f1f1f1;
       }

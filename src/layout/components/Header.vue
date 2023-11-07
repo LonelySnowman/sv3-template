@@ -2,24 +2,32 @@
    <div class="header">
       <el-menu default-active="/" mode="horizontal" :ellipsis="false" router>
          <el-menu-item index="/">SV3-Template</el-menu-item>
-         <el-menu-item index="" @click="toDocument">
-            <i-ep-document></i-ep-document>
-            文档
+         <el-menu-item index="">
+            <a href="https://sv3-docs.snowhouse.space/" target="_blank">
+               <i-ep-document />
+               文档
+            </a>
          </el-menu-item>
-         <el-menu-item index="" @click="toCourse">
-            <i-ep-edit></i-ep-edit>
-            教程
+         <el-menu-item index="">
+            <a
+               href="https://sv3-docs.snowhouse.space/course/sv3/"
+               target="_blank"
+            >
+               <i-ep-edit />
+               教程
+            </a>
          </el-menu-item>
       </el-menu>
       <div class="flex-grow"></div>
       <div class="flex-center m05 color-dark-black">
-         <i-ep-user></i-ep-user>{{ username }}
+         <i-ep-user />
+         {{ username }}
       </div>
       <div
          class="flex-center m05 color-dark-black setting"
          @click="openSetting"
       >
-         <i-ep-setting></i-ep-setting>
+         <i-ep-setting />
       </div>
    </div>
    <el-drawer
@@ -53,19 +61,14 @@ const openSetting = function () {
 const closeSetting = function () {
    showSetting.value = false;
 };
-
-// 前往文档页面
-const toDocument = () => {
-   window.open('https://sv3-docs.snowhouse.space/');
-};
-
-// 前往教程页面
-const toCourse = () => {
-   window.open('https://sv3-docs.snowhouse.space/course/sv3/');
-};
 </script>
 
 <style scoped lang="scss">
+a {
+   display: flex;
+   align-items: center;
+}
+
 .header {
    display: flex;
    width: 100%;

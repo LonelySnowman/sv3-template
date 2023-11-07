@@ -12,7 +12,6 @@ import { loadEnv } from 'vite';
 
 export function getPluginsList(mode: string): Array<any> {
    const env = loadEnv(mode, process.cwd());
-   console.log(env);
    return [
       // 编译Vue模板文件
       vue(),

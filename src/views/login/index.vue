@@ -27,10 +27,7 @@
                />
             </el-form-item>
             <el-form-item>
-               <el-button
-                  v-debounce:500="userLogin"
-                  type="primary"
-                  style="width: 100%"
+               <el-button type="primary" style="width: 100%" @click="userLogin"
                   >登录</el-button
                >
             </el-form-item>
@@ -46,8 +43,7 @@ import type { FormRules } from 'element-plus';
 import { backToHome } from '@/utils/router';
 import { useUserStoreHook } from '@/store/modules/user';
 import loginIcon from '@/assets/imgs/login/team_up.svg';
-import vDebounce from '@/directive/debounce';
-import { debounce } from '@/utils/utils';
+import { debounce } from 'lodash';
 
 const userStore = useUserStoreHook();
 
@@ -71,11 +67,12 @@ const rules = reactive<FormRules>({
       },
    ],
 });
-function userLogin() {
+
+const userLogin = debounce(() => {
    userStore.storeUserLogin(userInfo).then(() => {
       backToHome();
    });
-}
+}, 200);
 </script>
 
 <style lang="scss" scoped>

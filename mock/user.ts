@@ -41,7 +41,6 @@ export default [
       url: '/mock/api/login',
       method: 'post',
       response: ({ body }) => {
-         console.log('进入Login');
          if (body.username !== body.password) {
             return {
                code: 1,

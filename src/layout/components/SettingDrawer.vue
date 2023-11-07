@@ -11,16 +11,17 @@
             @change="changeTheme"
          />
          <el-divider></el-divider>
-         <el-button type="primary" @click="debounceLogOut">退出登录</el-button>
+         <el-button type="primary" @click="logOut">退出登录</el-button>
       </div>
    </div>
 </template>
 
 <script setup lang="ts">
+import { debounce } from 'lodash';
 import { useSettingStoreHook } from '@/store/modules/setting';
-import { Sunny, Moon } from '@element-plus/icons-vue';
+import Sunny from '~icons/ep/sunny';
+import Moon from '~icons/ep/moon';
 import { ref } from 'vue';
-import { debounce } from '@/utils/utils';
 import { useUserStoreHook } from '@/store/modules/user';
 
 let settingStore = useSettingStoreHook();
@@ -28,10 +29,8 @@ let themeData = ref(settingStore.theme);
 const changeTheme = function (val) {
    settingStore.changeTheme(themeData, val);
 };
-// 退出登录
 const userStore = useUserStoreHook();
-const logout = userStore.logOut;
-let debounceLogOut = debounce(logout, 200);
+const logOut = debounce(userStore.logOut, 200);
 </script>
 
 <style scoped lang="scss">
