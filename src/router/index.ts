@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import { useUserStoreHook } from '@/store/modules/user';
 
 const modules: Record<string, any> = import.meta.glob(['./modules/*.ts'], {
    eager: true,
@@ -19,14 +18,8 @@ const router = createRouter({
    routes,
 });
 
-const noStatusPage = ['/login'];
 router.beforeEach(async (_to, _from, next) => {
-   NProgress.start();
-   const userStore = useUserStoreHook();
-   await userStore.refreshUserInfo();
-   const userIsLogin = userStore.isLogin();
-   if (userIsLogin || noStatusPage.includes(_to.path)) next();
-   else next('/login');
+   next();
 });
 
 router.afterEach((_to) => {

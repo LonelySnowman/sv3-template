@@ -44,7 +44,7 @@ const homeInfo = {
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   height: calc(100vh - 100px);
+   height: 100vh;
    a {
       display: flex;
       align-items: center;
