@@ -13,3 +13,6 @@ public
 .npmrc
 
 Dockerfile
+
+types/auto-imports.d.ts
+types/components.d.ts
