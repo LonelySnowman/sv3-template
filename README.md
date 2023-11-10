@@ -37,6 +37,7 @@
 ## 📖项目介绍
 
 - 快速开发Vue3项目的基础模板，配置常用路由及状态管理等工具，搭配简易Lint规范，加速基础项目开发。
+- 包含两个版本：main分支包含项目全部内容，thin分支剔除了登录示例及顶部路由菜单示例。
 
 ## 🚀快速开始
 
@@ -47,6 +48,9 @@
 # 克隆仓库
 git clone git@github.com:LonelySnowman/sv3-template.git
 
+# 克隆 thin 版本
+git clone -b thin git@github.com:LonelySnowman/sv3-template.git
+
 # 进入项目根目录
 cd sv3-template
 
@@ -55,6 +59,16 @@ pnpm install
 
 # 启动项目
 pnpm run dev
+```
+
+- 项目提供命令行工具进行下载 | [arceus-cli](https://github.com/LonelySnowman/arceus-cli)
+
+```bash
+# 安装依赖
+npm install arceus-cli -g
+
+# 创建模板
+arceus create
 ```
 
 ## ⚓指令介绍
