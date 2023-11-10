@@ -19,3 +19,16 @@
    - 支持自动引入 
 -  全面支持 Iconify 图标库
    - 支持自动引入 
+
+## V1.1.0
+
+> 时间: 2023/11/10
+
+### 🎉 新增功能
+
+- 支持命令行`cli`工具下载项目 | [arceus-cli](https://github.com/LonelySnowman/arceus-cli)
+- 新增`thin`模板，剔除项目登录与顶部菜单示例
+- 全面应用 Iconify 图标库
+
+### 🐛 修复问题
+- 修复服务端 Mock 配置失效问题
